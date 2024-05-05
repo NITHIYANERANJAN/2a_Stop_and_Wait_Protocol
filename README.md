@@ -13,40 +13,45 @@ To write a python program to perform stop and wait protocol
 6. Stop the Program
 ## PROGRAM
 ### CLIENT
-```
+```py
 import socket
 s=socket.socket()
-s.bind(('localhost',8000))
+s.bind(('localhost', 8000))
 s.listen(5)
 c,addr=s.accept()
 while True:
- i=input("Enter a data: ")
- c.send(i.encode())
- ack=c.recv(1024).decode()
- if ack:
-   print(ack)
-   continue
- else:
-   c.close()
-   break
+    i=input("Enter a data: ")
+    c.send(i.encode())
+    ack=c.recv(1024).decode()
+    if ack:
+        print(ack)
+        continue
+    else:
+        c.close()
+        break
+
 ```
 ### SERVER
-```
+```py
 import socket
 s=socket.socket()
-s.connect(('localhost',8000))
+s.connect(('localhost', 8000))
 while True:
- print(s.recv(1024).decode())
- s.send("Acknowledgement Recived".encode())
+    print(s.recv(1024).decode())
+    s.send("Acknowledgement Recived".encode())
+
 ```
 ## OUTPUT
-### CLIENT
-![image](https://github.com/NITHIYANERANJAN/2a_Stop_and_Wait_Protocol/assets/144979351/6f89af13-9053-4cdd-9d63-3e494f8627a1)
+### CLIENT OUTPUT
+![image](https://github.com/NITHIYANERANJAN/2a_Stop_and_Wait_Protocol/assets/144979351/e8c2e007-cd80-4186-8c9b-3e7688ffd6af)
 
 
-### SERVER
-![image](https://github.com/NITHIYANERANJAN/2a_Stop_and_Wait_Protocol/assets/144979351/4377f3ff-23bf-4782-aea9-3fb634369362)
+### SERVER OUTPUT
+![image](https://github.com/NITHIYANERANJAN/2a_Stop_and_Wait_Protocol/assets/144979351/aab95da7-3b74-475e-aee4-28bc52b631cf)
+
 
 
 ## RESULT
-Thus, python program to perform stop and wait protocol was successfully executed.
+
+Thus,python program to perform stop and wait protocol was successfully executed.
+
